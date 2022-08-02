@@ -1,4 +1,4 @@
-package ss2_loop_in_java.home_work;
+package ss3_arrays_and_methods.homeWork;
 
 import java.util.Arrays;
 
