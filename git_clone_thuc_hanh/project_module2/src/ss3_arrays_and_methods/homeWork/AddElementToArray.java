@@ -5,7 +5,9 @@ import java.util.Scanner;
 
 public class AddElementToArray {
     public static void main(String[] args) {
-        int [] number ={1,2,3,4,5,6};     // 1,5,3,4,5,6
+
+        // thêm một số vào trong mảng vd : 1,2,3,4,5 ---> 1,2,5,3,4,5
+        int [] number ={1,2,3,4,5,6};
         Scanner sc = new Scanner(System.in);
         System.out.println("input location number you want");
         int value = sc.nextInt();
