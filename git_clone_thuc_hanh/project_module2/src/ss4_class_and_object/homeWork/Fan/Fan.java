@@ -1,7 +1,6 @@
 package ss4_class_and_object.homeWork.Fan;
 
 public class Fan {
-    //    int speed, radius, color, boolean button;
     private int speed;
     private boolean button;
     private double radius;
@@ -62,7 +61,6 @@ public class Fan {
                     "fan is on" +
                     '}';
         } return "Fan{" +
-                "speed=" + this.getSpeed() +
                 ", radius=" + this.getRadius() +
                 ", color='" + this.getColor() + '\'' +
                 "fan is off" +
