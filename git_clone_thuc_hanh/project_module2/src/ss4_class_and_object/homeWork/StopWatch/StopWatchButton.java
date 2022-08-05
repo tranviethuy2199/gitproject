@@ -6,17 +6,9 @@ import java.util.Locale;
 public class StopWatchButton {
     private static LocalTime endTime;
     private static LocalTime startTime;
-//    LocalTime startTime, endTime;
 
     public StopWatchButton() {
     }
-
-    ;
-
-//    public StopWatchButton(LocalTime startTime, LocalTime endTime) {
-//        StopWatchButton.startTime = startTime;
-//        StopWatchButton.endTime = endTime;
-//    }
 
     public LocalTime getStartTime() {
         return startTime;
@@ -27,7 +19,7 @@ public class StopWatchButton {
     }
 
     public static void getElapsedTime() {
-        int ElaspedTime = (endTime.toSecondOfDay()-startTime.toSecondOfDay()) * 1000;
+        int ElaspedTime = (endTime.toSecondOfDay() - startTime.toSecondOfDay()) * 1000;
         System.out.println("số mili giây đếm được là :" + ElaspedTime);
     }
 
