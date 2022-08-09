@@ -9,6 +9,7 @@ public class ColorableTest {
         shapes[0] = new Square(5);
         for (Shape shape: shapes){
 //            shape.howToColor();
+            System.out.println();
             System.out.println(shape.howToColor());
         }
     }

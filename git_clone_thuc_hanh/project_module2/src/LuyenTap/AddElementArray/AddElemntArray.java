@@ -1,9 +1,9 @@
-package ss3_arrays_and_methods.homeWork;
+package LuyenTap.AddElementArray;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class AddElementToArray {
+public class AddElemntArray {
     public static void main(String[] args) {
 
         // thêm một số vào trong mảng vd : 1,2,3,4,5 ---> 1,2,5,3,4,5
@@ -43,9 +43,9 @@ public class AddElementToArray {
         int add = sc.nextInt();
         for (int i = array.length-1; i > value ; i--) {
             array[i] = array[i-1];
-            }
+        }
         array[value] = add;
         System.out.println(Arrays.toString(array));
 
-        }
+    }
 }

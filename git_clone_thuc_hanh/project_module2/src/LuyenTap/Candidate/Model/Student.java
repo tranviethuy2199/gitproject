@@ -1,10 +1,8 @@
-package ss5.practice.Candidate;
-
+package LuyenTap.Candidate.Model;
 
 import java.util.Scanner;
 
 public class Student {
-
     // code , name , birthday, point ( math ; literature ; english )
     private int code;
     private String name;
@@ -12,10 +10,9 @@ public class Student {
     private float math;
     private float literature;
     private float english;
-    private float point;
 
-    Student() {
-    }
+
+    Student() {};
 
     Student(int code, String name, String birthday, int math, int literature, int english) {
         this.code = code;
@@ -59,51 +56,12 @@ public class Student {
         System.out.println("điểm toán: " + math + "\n" + "điểm văn : " + literature + "\n" + "điểm anh: " + english);
     }
 
-    // in ra thông tin các thí sinh có tổng điểm lớn hơn 15
+//     in ra thông tin các thí sinh có tổng điểm lớn hơn 15
     public void PointList() {
-        point = ((math + literature + english) / 3);
+        float point = ((math + literature + english)/3);
         if (point > 15) {
-            System.out.println("top student : " + name + "\t" + code + "\t" + point);
+            System.out.println("top " + name + point);
         }
     }
 }
-
-class Information {
-    private Student[] students;
-    private int n;
-
-
-    public Information() {
-        students = new Student[100];
-        n = 10;
-    }
-    public Information(int n ){
-        if (n>=0){
-            this.n=n;
-        }else {
-            this.n=0;
-        }
-        students = new Student[n];
-    }
-
-    public void Input1() {
-        for (int i = 0; i < n; i++) {
-            this.students[i] = new Student();
-            this.students[i].Input();
-        }
-    }
-
-    public void Output1() {
-        for (int i = 0; i < n; i++) {
-            this.students[i].Output();
-        }
-    }
-
-    void pointList() {
-        for (int i = 0; i < n; i++) {
-            this.students[i].PointList();
-        }
-    }
-}
-
 
