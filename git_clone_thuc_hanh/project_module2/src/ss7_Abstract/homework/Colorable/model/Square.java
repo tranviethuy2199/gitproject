@@ -1,6 +1,6 @@
 package ss7_Abstract.homework.Colorable.model;
 
-public class Square extends Shape implements InterfaceColorable {
+public class Square extends Shape implements Colorable {
     double side;
 
     public Square() {} ;
