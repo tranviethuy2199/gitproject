@@ -1,9 +1,8 @@
-package ss6.homework.Point2d_Point3d.Model;
+package ss6_Inheriti.homework.Point_MoveablePoint.Model;
 
-import java.sql.Array;
 import java.util.Arrays;
 
-public class Point3d extends ss6.homework.Point2d_Point3d.Model.Point2d {
+public class Point3d extends Point2d {
     private float z = 0.0f;
 
     public Point3d() {};

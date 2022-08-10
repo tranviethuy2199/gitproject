@@ -1,7 +1,4 @@
-package ss6.homework.Point2d_Point3d.Model;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+package ss6_Inheriti.homework.Point_MoveablePoint.Model;
 
 public class Point2d {
     private float x = 0.0f;
