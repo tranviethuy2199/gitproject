@@ -1,6 +1,6 @@
 package ss6.homework.Circle.Model;
 
-public class Cylinder extends Circle {
+public class Cylinder extends ss6.homework.Circle.Model.Circle {
 
     private double height;
 
