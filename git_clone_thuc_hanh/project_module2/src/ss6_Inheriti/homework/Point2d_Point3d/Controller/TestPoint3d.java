@@ -1,6 +1,6 @@
-package ss6_Inheriti.homework.Point_MoveablePoint.Controller;
+package ss6_Inheriti.homework.Point2d_Point3d.Controller;
 
-import ss6_Inheriti.homework.Point_MoveablePoint.Model.Point3d;
+import ss6_Inheriti.homework.Point2d_Point3d.Model.Point3d;
 
 public class TestPoint3d {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ss6_Inheriti.homework.Point_MoveablePoint.Model;
+package ss6_Inheriti.homework.Point2d_Point3d.Model;
 
 import java.util.Arrays;
 

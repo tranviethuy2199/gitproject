@@ -1,4 +1,4 @@
-package ss6_Inheriti.homework.Point_MoveablePoint.Model;
+package ss6_Inheriti.homework.Point2d_Point3d.Model;
 
 public class Point2d {
     private float x = 0.0f;
