@@ -9,7 +9,7 @@ public class Student {
 
 
 
-    Student(int r , String n) {
+    public Student(int r, String n) {
         rollno = r;
         name = n;
     }
@@ -18,5 +18,8 @@ public class Student {
     }
     void display(){
         System.out.println( rollno + "" + name + "" + college);
+    }
+
+    public void getId() {
     }
 }

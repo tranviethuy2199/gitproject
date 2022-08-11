@@ -1,7 +1,5 @@
 package LuyenTap.CaseStudy.model;
 
-import LuyenTap.CaseStudy.controller.StaffInformation;
-
 import java.util.Scanner;
 
 public class Staff  {
@@ -29,43 +27,43 @@ public class Staff  {
 
    }
 
-   public void Input() {
-       Scanner sc = new Scanner(System.in);
-       System.out.println("input id");
-       id = sc.nextInt();
-
-       System.out.println("write your name");
-       name = sc.nextLine();
-
-       System.out.println("input your birthday");
-       birthday = sc.nextLine();
-
-       System.out.println("giới tính");
-       sex = sc.nextLine();
-
-       System.out.println("cmnd");
-       cmnd = sc.nextInt();
-
-       System.out.println("input your level ");
-       level = sc.nextLine();
-
-       System.out.println("trình độ văn hóa ");
-       education = sc.nextLine();
-
-       System.out.println("lương cơ bản");
-       wage = sc.nextInt();
-   }
-
-   public void Output() {
-       System.out.println(id);
-       System.out.println(name);
-       System.out.println(birthday);
-       System.out.println(sex);
-       System.out.println(cmnd);
-       System.out.println(level);
-       System.out.println(education);
-       System.out.println(wage);
-   }
+//   public void Input() {
+//       Scanner sc = new Scanner(System.in);
+//       System.out.println("input id");
+//       id = sc.nextInt();
+//
+//       System.out.println("write your name");
+//       name = sc.nextLine();
+//
+//       System.out.println("input your birthday");
+//       birthday = sc.nextLine();
+//
+//       System.out.println("giới tính");
+//       sex = sc.nextLine();
+//
+//       System.out.println("cmnd");
+//       cmnd = sc.nextInt();
+//
+//       System.out.println("input your level ");
+//       level = sc.nextLine();
+//
+//       System.out.println("trình độ văn hóa ");
+//       education = sc.nextLine();
+//
+//       System.out.println("lương cơ bản");
+//       wage = sc.nextInt();
+//   }
+//
+//   public void Output() {
+//       System.out.println(id);
+//       System.out.println(name);
+//       System.out.println(birthday);
+//       System.out.println(sex);
+//       System.out.println(cmnd);
+//       System.out.println(level);
+//       System.out.println(education);
+//       System.out.println(wage);
+//   }
 
     @Override
     public String toString() {

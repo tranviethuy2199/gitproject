@@ -19,11 +19,12 @@ public class AddElemntArray {
 //        number[value] = add;
 //        System.out.println(Arrays.toString(number));
 
-        int n = 0;
+        int n;
 
         Scanner sc = new Scanner(System.in);
 
         // khởi tạo mảng chứa số lượng các số được nhập từ bàn phím
+
         do {
             System.out.println("input amount number in array you want !");
             n = sc.nextInt();
@@ -32,6 +33,8 @@ public class AddElemntArray {
         int[] array = new int[n];
 
         // sau khi tạo mảng thì nhập các phần tử cho mảng
+        //thêm các phần tử vào trong mảng
+
         for (int i = 0; i <n ; i++) {
             System.out.println("input anything number you want to enter in array");
             array[i] = sc.nextInt();

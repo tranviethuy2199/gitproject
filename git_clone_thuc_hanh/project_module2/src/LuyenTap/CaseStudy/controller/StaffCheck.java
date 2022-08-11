@@ -1,5 +1,7 @@
 package LuyenTap.CaseStudy.controller;
 
+import LuyenTap.CaseStudy.service.IStaff;
+
 import java.util.Scanner;
 
 public class StaffCheck {
@@ -23,7 +25,7 @@ public class StaffCheck {
 
                     break;
                 case 2:
-                    StaffInformation.showAll();
+                    IStaff.showAll();
                     break;
                 case 3:
                     break;
