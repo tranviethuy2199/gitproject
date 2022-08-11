@@ -33,10 +33,10 @@ public class MyListTest {
 
     public static void main(String[] args) {
         Students a = new Students(1, "huy");
-        Students b = new Students(1, "huy");
-        Students c = new Students(1, "huy");
-        Students d = new Students(1, "huy");
-        Students e = new Students(1, "huy");
+        Students b = new Students(2, "a");
+        Students c = new Students(3, "b");
+        Students d = new Students(4, "c");
+        Students e = new Students(5, "d");
 
 
         MyArrayList<Students> studentMyArrayList = new MyArrayList<>();

@@ -71,5 +71,26 @@ public class MyArrayList<E> {
         }
     }
 
+    public E get(int index) {
+        return (E)  elements[index];
+    }
+
+
+    public int indexOf(E element) {
+        int index = -1;
+        for (int i = 0; i < size; i++) {
+            if (this.elements[i].equals(element)) {
+                return 1;
+            }
+        }
+        return index;
+    }
+
+
+
+    public boolean contain(E element) {
+        return this.indexOf(element) >= 0;
+    }
+
 
 }
