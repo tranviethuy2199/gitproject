@@ -11,6 +11,11 @@ public class TeacherService implements ITeacherService {
     private static Scanner sc = new Scanner(System.in);
     private static List<Teacher> teachers = new ArrayList<>();
 
+    static {
+        teachers.add(new Teacher(1, "quang", "12/12/12", "nam", "tutor"));
+        teachers.add(new Teacher(2, "hai", "12/12/12", "nam", "coach"));
+    }
+
     @Override
     public void displayAllTeacher() {
         for (Teacher teacher : teachers

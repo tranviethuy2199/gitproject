@@ -9,12 +9,12 @@ public class TeacherController  {
     private static Scanner sc = new Scanner(System.in);
     private ITeacherService teacherService = new TeacherService();
 
-    void teacherService() {
+    public void teacherService() {
         while (true) {
             System.out.println(" Do you want to add students? - please choice number");
-            System.out.println("1. Add new students");
-            System.out.println("2. Show student list");
-            System.out.println("3. Delete anything Student");
+            System.out.println("1. Add new Teacher");
+            System.out.println("2. Show Teacher list");
+            System.out.println("3. Delete any Teacher");
             System.out.println("4. Exit ");
             int choose = Integer.parseInt(sc.nextLine());
             switch (choose) {

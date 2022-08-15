@@ -90,15 +90,16 @@ public abstract class Person {
         this.sex = sex;
     }
 
-    @Override
+
     public String toString() {
         return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", birthday='" + birthday + '\'' +
-                ", sex='" + sex + '\'' +
+                "id=" + this.id +
+                ", name='" + this.name + '\'' +
+                ", birthday='" + this.birthday + '\'' +
+                ", sex='" + this.sex + '\'' +
                 '}';
     }
+
 
 
 }
