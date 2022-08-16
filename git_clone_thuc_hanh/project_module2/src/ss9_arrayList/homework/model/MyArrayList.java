@@ -2,7 +2,7 @@ package ss9_arrayList.homework.model;
 
 import java.util.Arrays;
 
-public class MyArrayList<E> {
+public class   MyArrayList<E> {
 
     private int size = 0;
     private static final int DEFAULT_CAPACITY = 10;
@@ -41,24 +41,24 @@ public class MyArrayList<E> {
         return true;
     }
 
-    public void add(E element, int index) {
-        if (index > elements.length) {
-            throw new IllegalArgumentException("index" + index);
-        } else if (elements.length == size) {
-            this.ensureCapacity(5);
-        }
-
-        if (elements[index] == null) {
-            elements[index] = element;
-            size++;
-        } else {
-            for (int i = size + 1; i >= index; i--) {
-                elements[i] = elements[i - 1];
-            }
-            elements[index] = element;
-            size++;
-        }
-    }
+//    public void add(E element, int index) {
+//        if (index > elements.length) {
+//            throw new IllegalArgumentException("index" + index);
+//        } else if (elements.length == size) {
+//            this.ensureCapacity(5);
+//        }
+//
+//        if (elements[index] == null) {
+//            elements[index] = element;
+//            size++;
+//        } else {
+//            for (int i = size + 1; i >= index; i--) {
+//                elements[i] = elements[i - 1];
+//            }
+//            elements[index] = element;
+//            size++;
+//        }
+//    }
 
 
     public void ensureCapacity(int minCapacity) throws IllegalArgumentException {

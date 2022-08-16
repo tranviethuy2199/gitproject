@@ -1,6 +1,7 @@
 package ss9_arrayList.homework.controller;
 
 
+import LuyenTap.CaseStudy.model.Student;
 import ss9_arrayList.homework.model.MyArrayList;
 import ss9_arrayList.pratice.pratice1.model.MyList;
 
@@ -33,10 +34,12 @@ public class MyListTest {
 
     public static void main(String[] args) {
         Students a = new Students(1, "huy");
-        Students b = new Students(2, "a");
-        Students c = new Students(3, "b");
-        Students d = new Students(4, "c");
-        Students e = new Students(5, "d");
+        Students b = new Students(2, "hoa");
+        Students c = new Students(3, "hoàng");
+        Students d = new Students(4, "hải");
+        Students e = new Students(5, "hưng");
+
+
 
 
         MyArrayList<Students> studentMyArrayList = new MyArrayList<>();
@@ -45,7 +48,6 @@ public class MyListTest {
         studentMyArrayList.add(c);
         studentMyArrayList.add(d);
         studentMyArrayList.add(e);
-
 
         for (int i = 0; i < studentMyArrayList.size(); i++) {
             Students student = (Students) studentMyArrayList.elements[i];
