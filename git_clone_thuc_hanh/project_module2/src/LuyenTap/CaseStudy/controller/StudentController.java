@@ -15,7 +15,8 @@ public class StudentController {
             System.out.println("1. Add new students");
             System.out.println("2. Show student list");
             System.out.println("3. Delete any Student");
-            System.out.println("4. Exit ");
+            System.out.println("4. Find any Student");
+            System.out.println("5. Exit ");
             int choose = Integer.parseInt(sc.nextLine());
             switch (choose) {
                 case 1 :
@@ -28,6 +29,8 @@ public class StudentController {
                     studentService.removeStudent();
                     break;
                 case 4 :
+                   studentService.findStudent();
+                case 5 :
                     return;
                 default:
                     System.out.println("Please enter again !");

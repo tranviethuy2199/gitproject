@@ -1,9 +1,7 @@
 package ss11_collectionFramework.homework.controller;
 
-import LuyenTap.CaseStudy.service.IStudentService;
-import LuyenTap.CaseStudy.service.impl.StudentService;
 import ss11_collectionFramework.homework.service.IProduct;
-import ss11_collectionFramework.homework.service.ProductService;
+import ss11_collectionFramework.homework.service.impl.ProductService;
 
 import java.util.Scanner;
 

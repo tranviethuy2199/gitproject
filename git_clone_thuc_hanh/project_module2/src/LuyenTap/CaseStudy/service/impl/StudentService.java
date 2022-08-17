@@ -12,8 +12,13 @@ public class StudentService implements IStudentService {
     private static List<Student> students = new ArrayList<>();
 
     static {
-        students.add(new Student(1, "quang", "12/12/12", "nam", 10, "c0622g1"));
-        students.add(new Student(2, "hai", "12/12/12", "nam", 5, "c0622g1"));
+        students.add(new Student(1, "quang", "1/12/95", "nam", 10, "c0622g1"));
+        students.add(new Student(2, "duy", "12/12/01", "nam", 5, "c0622g1"));
+        students.add(new Student(3, "tiến", "12/12/01", "nam", 5, "c0622g1"));
+        students.add(new Student(4, "huy", "12/12/99", "nam", 5, "c0622g1"));
+        students.add(new Student(4, "huy", "12/12/99", "nam", 5, "c0622g1"));
+        students.add(new Student(5, "đức ", "12/12/03", "nam", 5, "c0622g1"));
+        students.add(new Student(6, "hùng", "12/12/98", "nam", 5, "c0622g1"));
     }
 
     @Override
@@ -22,6 +27,7 @@ public class StudentService implements IStudentService {
         students.add(student);
         System.out.println("completed");
     }
+
     private Student StudentInfor() {
         System.out.print("Please input ID :  ");
         int id = Integer.parseInt(sc.nextLine());
@@ -35,7 +41,7 @@ public class StudentService implements IStudentService {
         double score = Double.parseDouble(sc.nextLine());
         System.out.print("Please input your name class :");
         String nameClass = sc.nextLine();
-        Student student = new Student(id, name, birthday, sex, score,nameClass);
+        Student student = new Student(id, name, birthday, sex, score, nameClass);
 //        System.out.println(id);
 //        System.out.println(name);
 //        System.out.println(birthday);
@@ -57,7 +63,7 @@ public class StudentService implements IStudentService {
 
     @Override
     public void removeStudent() {
-        Student student = this.findStudent();
+        Student student = this.foundStudent();
         if (student == null) {
             System.out.println("Sorry , We did not find !");
         } else {
@@ -72,7 +78,23 @@ public class StudentService implements IStudentService {
         }
     }
 
-    private Student findStudent() {
+    @Override
+    public void findStudent() {
+        System.out.println("--if you remember StudentID please choice 1-- ");
+        System.out.println("--if not please choice 2-- ");
+        int choose = Integer.parseInt(sc.nextLine());
+        switch (choose) {
+            case 1 :
+                Student student = this.findId();
+                break;
+            case 2 :
+                Student student1 = this.findName();
+                break;
+        }
+
+    }
+
+    private Student foundStudent() {
         System.out.println("Enter the ID you want to delete");
         int id = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < students.size(); i++) {
@@ -83,5 +105,30 @@ public class StudentService implements IStudentService {
         return null;
     }
 
+    private Student findId() {
+        System.out.println("please input studentID");
+        int findId = Integer.parseInt(sc.nextLine());
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getId() == findId) {
+                System.out.println("Result : " + students.get(i));
+            }
+        }
+        return null;
+    }
 
+    private Student findName() {
+        System.out.println("please write student name");
+        String findName = sc.nextLine();
+        int count = 0;
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).getName().equals(findName)) {
+                System.out.println("Result : " + students.get(i));
+                count++;
+            }
+        }
+        if (count == 0) {
+            System.out.println("sorry , we did not find ");
+        }
+        return null;
+    }
 }
