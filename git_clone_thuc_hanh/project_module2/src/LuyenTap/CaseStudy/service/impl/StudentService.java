@@ -21,6 +21,7 @@ public class StudentService implements IStudentService {
         students.add(new Student(6, "hùng", "12/12/98", "nam", 5, "c0622g1"));
     }
 
+    // thêm học sinh
     @Override
     public void addStudent() {
         Student student = this.StudentInfor();
@@ -28,6 +29,8 @@ public class StudentService implements IStudentService {
         System.out.println("completed");
     }
 
+
+    // phân đoạn nhập thông tin học sinh
     private Student StudentInfor() {
         System.out.print("Please input ID :  ");
         int id = Integer.parseInt(sc.nextLine());
@@ -42,25 +45,25 @@ public class StudentService implements IStudentService {
         System.out.print("Please input your name class :");
         String nameClass = sc.nextLine();
         Student student = new Student(id, name, birthday, sex, score, nameClass);
-//        System.out.println(id);
-//        System.out.println(name);
-//        System.out.println(birthday);
-//        System.out.println(sex);
-//        System.out.println(nameClass);
-//        System.out.println(score);
         System.out.println(student);
         return student;
 
     }
 
+    //hiển thị danh sách học sinh
     @Override
     public void displayAllStudent() {
+
+        // hiển thị danh sách
         for (Student student : students) {
             System.out.println(student);
         }
 
+
+
     }
 
+    // xóa học sinh
     @Override
     public void removeStudent() {
         Student student = this.foundStudent();
@@ -78,22 +81,26 @@ public class StudentService implements IStudentService {
         }
     }
 
+
+    // tìm học sinh theo tên hoặc ID
     @Override
     public void findStudent() {
         System.out.println("--if you remember StudentID please choice 1-- ");
         System.out.println("--if not please choice 2-- ");
         int choose = Integer.parseInt(sc.nextLine());
         switch (choose) {
-            case 1 :
+            case 1:
                 Student student = this.findId();
                 break;
-            case 2 :
+            case 2:
                 Student student1 = this.findName();
                 break;
         }
 
     }
 
+
+    // phân đoạn tìm học sinh theo ID để xóa
     private Student foundStudent() {
         System.out.println("Enter the ID you want to delete");
         int id = Integer.parseInt(sc.nextLine());
@@ -105,6 +112,8 @@ public class StudentService implements IStudentService {
         return null;
     }
 
+
+    // phân đoạn tìm học sinh theo ID
     private Student findId() {
         System.out.println("please input studentID");
         int findId = Integer.parseInt(sc.nextLine());
@@ -116,6 +125,8 @@ public class StudentService implements IStudentService {
         return null;
     }
 
+
+    // phân đoạn tìm học sinh theo tên trong trường hợp không nhớ ID
     private Student findName() {
         System.out.println("please write student name");
         String findName = sc.nextLine();
@@ -131,4 +142,39 @@ public class StudentService implements IStudentService {
         }
         return null;
     }
+
+    //        danh sách sắp xếp
+//    private void sortStudent() {
+//        while (true) {
+//            boolean isSwap = true;
+//            for (int i = 0; i < students.size() && isSwap; i++) {
+//                isSwap = false;
+//                for (int j = 0; j < students.size() - 1 - i; j++) {
+//                    if (students.get(j).getName().charAt(0) > students.get(j + 1).getName().charAt(0)) ;
+//                    isSwap = true;
+//                    Student student1 = students.get(j + 1);
+//                    students.set(j + 1, students.get(j));
+//                    students.set(j, student1);
+//
+//                }
+//            }
+//        }
+//    }
 }
+
+// hiển thị danh sách sắp xếp tên theo thứ tự dùng compareTo
+//        while (true) {
+//            boolean isSwap = true;
+//            for (int i = 0; i <students.size() && isSwap ; i++) {
+//                isSwap = false;
+//                for (int j = 0; j < students.size()-1-i ; j++) {
+//                    if (students.get(j).getName().compareTo(students.get(j+1).getName())>0);
+//                    isSwap = true;
+//                    Student student1 = students.get(j+1);
+//                    students.set(j+1,students.get(j));
+//                    students.set(j,student1);
+//
+//                }
+//            }
+//        }
+
