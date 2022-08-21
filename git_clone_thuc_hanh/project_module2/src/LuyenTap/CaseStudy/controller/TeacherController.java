@@ -19,10 +19,10 @@ public class TeacherController  {
             int choose = Integer.parseInt(sc.nextLine());
             switch (choose) {
                 case 1 :
-                    teacherService.displayAllTeacher();
+                    teacherService.addTeacher();
                     break;
                 case 2 :
-                    teacherService.addTeacher();
+                    teacherService.displayAllTeacher();
                     break;
                 case 3 :
                    teacherService.removeTeacher();

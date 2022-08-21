@@ -2,6 +2,7 @@ package LuyenTap.CaseStudy.service.impl;
 
 import LuyenTap.CaseStudy.model.Student;
 import LuyenTap.CaseStudy.service.IStudentService;
+import LuyenTap.CaseStudy.service.ScoreException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +41,26 @@ public class StudentService implements IStudentService {
         String birthday = sc.nextLine();
         System.out.print("Please input your sex : ");
         String sex = sc.nextLine();
-        System.out.print("Please input your score test :");
-        double score = Double.parseDouble(sc.nextLine());
         System.out.print("Please input your name class :");
         String nameClass = sc.nextLine();
+        double score;
+        while (true) {
+            try {
+                System.out.println("please input your score : ");
+                score = Double.parseDouble(sc.nextLine());
+                if (score < 0 || score > 100) {
+                    throw new ScoreException("không thể nhập điểm nhỏ hơn 0 hoặc lớn hơn 100 ");
+                }
+                break;
+
+            } catch (NumberFormatException e) {
+                System.out.println("yêu cầu nhập lại , hãy nhập số ");
+            } catch (ScoreException s) {
+                System.out.println(s.getMessage());
+            } catch (Exception e) {
+            }
+        }
+
         Student student = new Student(id, name, birthday, sex, score, nameClass);
         System.out.println(student);
         return student;
@@ -55,6 +72,7 @@ public class StudentService implements IStudentService {
     public void displayAllStudent() {
 
         // hiển thị danh sách
+        sortStudent();
         for (Student student : students) {
             System.out.println(student);
         }
@@ -160,21 +178,23 @@ public class StudentService implements IStudentService {
 //            }
 //        }
 //    }
-}
+//}
 
 // hiển thị danh sách sắp xếp tên theo thứ tự dùng compareTo
-//        while (true) {
-//            boolean isSwap = true;
-//            for (int i = 0; i <students.size() && isSwap ; i++) {
-//                isSwap = false;
-//                for (int j = 0; j < students.size()-1-i ; j++) {
-//                    if (students.get(j).getName().compareTo(students.get(j+1).getName())>0);
-//                    isSwap = true;
-//                    Student student1 = students.get(j+1);
-//                    students.set(j+1,students.get(j));
-//                    students.set(j,student1);
-//
-//                }
-//            }
-//        }
+      private void sortStudent() {
+            boolean isSwap = true;
+            Student student1;
+            for (int i = 0; i <students.size() && isSwap ; i++) {
+                isSwap = false;
+                for (int j = 0; j < students.size()-1-i ; j++) {
+                    if (students.get(j).getName().compareTo(students.get(j+1).getName())>0);
+                    isSwap = true;
+                    student1 = students.get(j+1);
+                    students.set(j+1,students.get(j));
+                    students.set(j,student1);
+
+                }
+            }
+        }
+      }
 
