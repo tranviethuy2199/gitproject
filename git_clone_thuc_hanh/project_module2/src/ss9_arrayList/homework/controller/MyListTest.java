@@ -1,9 +1,7 @@
 package ss9_arrayList.homework.controller;
 
 
-import LuyenTap.CaseStudy.model.Student;
 import ss9_arrayList.homework.model.MyArrayList;
-import ss9_arrayList.pratice.pratice1.model.MyList;
 
 public class MyListTest {
     public static class Students {
