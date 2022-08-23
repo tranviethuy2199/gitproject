@@ -8,8 +8,8 @@ public interface IStudentService {
 
     void addStudent() throws IOException;
 
-    void removeStudent();
+    void removeStudent() throws IOException;
 
-    void findStudent();
+    void findStudent() throws IOException;
 
 }

@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class MainView {
     public static void main(String[] args) throws IOException {
-        InformationController studentController = new InformationController();
-        studentController.menuManagement();
+       InformationController informationController = new InformationController();
+       informationController.menuManagement();
 
 
 

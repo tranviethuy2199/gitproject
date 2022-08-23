@@ -24,12 +24,13 @@ public class Teacher extends Person {
 
     @Override
     public String toString() {
-        return "Teacher{" +
-                " ID = " + this.getId()+
-                " Name =" + getName() +
-                " Date of Birth = " + getBirthday() +
-                " Sex = " + getSex() +
-                "specialty='" + this.specialty + '\'' +
-                '}';
+//        return "Teacher{" +
+//                " ID = " + this.getId()+
+//                " Name =" + getName() +
+//                " Date of Birth = " + getBirthday() +
+//                " Sex = " + getSex() +
+//                "specialty='" + this.specialty + '\'' +
+//                '}';
+        return String.format("%s,%s,%s,%s,%s",this.getId(),this.getName(),this.getBirthday(),this.getSex(),this.specialty);
     }
 }

@@ -12,18 +12,27 @@ import java.util.Scanner;
 
 public class StudentService implements IStudentService {
     private static Scanner sc = new Scanner(System.in);
-    private static List<Student> students = new ArrayList<>();
-    private static final String PATH_NAME_FILE_STUDENT = "src\\LuyenTap\\StudentManager\\data\\student.txt";
+    private static List<Student> students;
 
     static {
-        students.add(new Student(1, "quang", "1/12/95", "nam", 10, "c0622g1"));
-        students.add(new Student(2, "duy", "12/12/01", "nam", 5, "c0622g1"));
-        students.add(new Student(3, "tiến", "12/12/01", "nam", 5, "c0622g1"));
-        students.add(new Student(4, "huy", "12/12/99", "nam", 5, "c0622g1"));
-        students.add(new Student(4, "huy", "12/12/99", "nam", 5, "c0622g1"));
-        students.add(new Student(5, "an ", "12/12/03", "nam", 5, "c0622g1"));
-        students.add(new Student(6, "hùng", "12/12/98", "nam", 5, "c0622g1"));
+        try {
+            students = readStudentFile("src\\LuyenTap\\StudentManager\\data\\student.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    private static final String PATH_NAME_FILE_STUDENT = "src\\LuyenTap\\StudentManager\\data\\student.txt";
+
+//    static {
+//        students.add(new Student(1, "quang", "1/12/95", "nam", 10, "c0622g1"));
+//        students.add(new Student(2, "duy", "12/12/01", "nam", 5, "c0622g1"));
+//        students.add(new Student(3, "tiến", "12/12/01", "nam", 5, "c0622g1"));
+//        students.add(new Student(4, "huy", "12/12/99", "nam", 5, "c0622g1"));
+//        students.add(new Student(4, "huy", "12/12/99", "nam", 5, "c0622g1"));
+//        students.add(new Student(5, "an ", "12/12/03", "nam", 5, "c0622g1"));
+//        students.add(new Student(6, "hùng", "12/12/98", "nam", 5, "c0622g1"));
+//    }
 
     // thêm học sinh
     @Override
@@ -76,10 +85,10 @@ public class StudentService implements IStudentService {
 
     //hiển thị danh sách học sinh
     @Override
-    public void displayAllStudent()  {
+    public void displayAllStudent() throws IOException {
 
         // hiển thị danh sách đã sắp xếp
-//        students = readStudentFile("src\\LuyenTap\\StudentManager\\data\\student.txt");
+        students = readStudentFile("src\\LuyenTap\\StudentManager\\data\\student.txt");
        sortStudent();
         for (Student student : students) {
             System.out.println(student);
@@ -91,7 +100,7 @@ public class StudentService implements IStudentService {
 
     // xóa học sinh
     @Override
-    public void removeStudent() {
+    public void removeStudent() throws IOException {
         Student student = this.foundStudent();
         if (student == null) {
             System.out.println("Sorry , We did not find !");
@@ -101,7 +110,7 @@ public class StudentService implements IStudentService {
             System.out.println("2 . No !?");
             int choose = Integer.parseInt(sc.nextLine());
             if (choose == 1) {
-                student.remove(student);
+                students.remove(student);
                 System.out.println("delete completed");
             }
         }
@@ -110,7 +119,7 @@ public class StudentService implements IStudentService {
 
     // tìm học sinh theo tên hoặc ID
     @Override
-    public void findStudent() {
+    public void findStudent() throws IOException {
         System.out.println("--if you remember StudentID please choice 1-- ");
         System.out.println("--if not please choice 2-- ");
         int choose = Integer.parseInt(sc.nextLine());
@@ -128,7 +137,8 @@ public class StudentService implements IStudentService {
 
 
     // phân đoạn tìm học sinh theo ID để xóa
-    private Student foundStudent() {
+    private Student foundStudent() throws IOException {
+        students = readStudentFile("src\\LuyenTap\\StudentManager\\data\\student.txt");
         System.out.println("Enter the ID you want to delete");
         int id = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < students.size(); i++) {
@@ -141,7 +151,8 @@ public class StudentService implements IStudentService {
 
 
     // phân đoạn tìm học sinh theo ID
-    private Student findId() {
+    private Student findId() throws IOException {
+        students = readStudentFile("src\\LuyenTap\\StudentManager\\data\\student.txt");
         System.out.println("please input studentID");
         int findId = Integer.parseInt(sc.nextLine());
         for (int i = 0; i < students.size(); i++) {
@@ -154,7 +165,8 @@ public class StudentService implements IStudentService {
 
 
     // phân đoạn tìm học sinh theo tên trong trường hợp không nhớ ID
-    private Student findName() {
+    private Student findName() throws IOException {
+        students = readStudentFile("src\\LuyenTap\\StudentManager\\data\\student.txt");
         System.out.println("please write student name");
         String findName = sc.nextLine();
         int count = 0;
@@ -171,8 +183,8 @@ public class StudentService implements IStudentService {
     }
 
     // hiển thị danh sách sắp xếp tên theo thứ tự dùng compareTo
-    private void sortStudent(){
-//        students = readStudentFile(PATH_NAME_FILE_STUDENT);
+    private void sortStudent() throws IOException {
+        students = readStudentFile("src\\LuyenTap\\StudentManager\\data\\student.txt");
         boolean isSwap = true;
         Student newStudent;
         for (int i = 0; i < students.size() - 1 && isSwap; i++) {

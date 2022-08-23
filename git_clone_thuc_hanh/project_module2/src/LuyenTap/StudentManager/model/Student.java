@@ -22,14 +22,15 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "Student{" +
-                " ID = " + this.getId()+
-                " Name =" + getName() +
-                " Date of Birth = " + getBirthday() +
-                " Sex = " + getSex() +
-                " score = " + this.score +
-                " ,nameClass = '" + this.nameClass +
-                "} ";
+//        return "Student{" +
+//                " ID = " + this.getId()+
+//                " Name =" + getName() +
+//                " Date of Birth = " + getBirthday() +
+//                " Sex = " + getSex() +
+//                " score = " + this.score +
+//                " ,nameClass = '" + this.nameClass +
+//                "} ";
+        return String.format("%s,%s,%s,%s,%s,%s",this.getId(),this.getName(),this.getBirthday(),this.getSex(),this.score,this.nameClass);
     }
 
 //    public Student(double score, String nameClass) {
