@@ -11,16 +11,10 @@ public class Room extends Villa {
         this.soTang = soTang;
     }
 
-    public Room(String tieuChuan, double dienTichHoBoi, int soTang, String tieuChuan1, int soTang1) {
-        super(tieuChuan, dienTichHoBoi, soTang);
-        this.tieuChuan = tieuChuan1;
-        this.soTang = soTang1;
-    }
 
-    public Room(String dienTich, double chiPhi, int soLuongNguoi, String kieuThue, String tieuChuan, double dienTichHoBoi, int soTang, String tieuChuan1, int soTang1) {
-        super(dienTich, chiPhi, soLuongNguoi, kieuThue, tieuChuan, dienTichHoBoi, soTang);
-        this.tieuChuan = tieuChuan1;
-        this.soTang = soTang1;
+    public Room(String dienTich, double chiPhi, int soLuongNguoi, String kieuThue, String tieuChuan, int soTang) {
+        this.tieuChuan = tieuChuan;
+        this.soTang = soTang;
     }
 
 

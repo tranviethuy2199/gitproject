@@ -1,6 +1,6 @@
 package LuyenTap.FuramaObject.model.FurumaResort;
 
-public class Resort {
+public abstract class Resort {
     private String dienTich;
     private double chiPhi;
     private int soLuongNguoi;

@@ -2,7 +2,7 @@ package LuyenTap.FuramaObject.model.Person;
 
 import ss10_stack_queue.homework.Palindrome.model.Palindrome;
 
-public class Person {
+public abstract class Person {
     private String hoVaTen;
     private String ngaySinh;
     private int cmnd;
@@ -69,4 +69,6 @@ public class Person {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+//    public abstract int indexOf(NhanVien temp);
 }
