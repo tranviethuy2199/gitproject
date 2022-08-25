@@ -1,9 +1,11 @@
 package LuyenTap.FuramaObject.service.Interface;
 
+import java.io.IOException;
+
 public interface ICustomerService {
-    void displayAllCustomer();
+    void displayAllCustomer() throws IOException;
 
-    void addCustomer();
+    void addCustomer() throws IOException;
 
-    void editCustomer();
+    void editCustomer() throws IOException;
 }

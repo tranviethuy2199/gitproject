@@ -3,13 +3,14 @@ package LuyenTap.FuramaObject.controller;
 import LuyenTap.FuramaObject.service.Interface.ICustomerService;
 import LuyenTap.FuramaObject.service.impl.CustomerService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CustomerController {
     private static Scanner sc = new Scanner(System.in);
     private ICustomerService icustomerService = new CustomerService();
 
-    public void customerService() {
+    public void customerService() throws IOException {
         while (true) {
             System.out.println("Wellcome to Customer Manager");
             System.out.println("1.Add new Customer");

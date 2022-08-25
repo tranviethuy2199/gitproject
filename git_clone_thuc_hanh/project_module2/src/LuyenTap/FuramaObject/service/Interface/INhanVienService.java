@@ -1,11 +1,13 @@
 package LuyenTap.FuramaObject.service.Interface;
 
+import java.io.IOException;
+
 public interface INhanVienService {
    
 
-    void displayAllEmployee();
+    void displayAllEmployee() throws IOException;
 
-    void addEmployee();
+    void addEmployee() throws IOException;
 
-    void editEmployee();
+    void editEmployee() throws IOException;
 }

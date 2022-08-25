@@ -2,7 +2,10 @@ package LuyenTap.FuramaObject.service.impl;
 
 import LuyenTap.FuramaObject.model.Person.NhanVien;
 import LuyenTap.FuramaObject.service.Interface.INhanVienService;
+import LuyenTap.FuramaObject.untils.nhanVienFile.ReadFile;
+import LuyenTap.FuramaObject.untils.nhanVienFile.WriteFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -11,33 +14,79 @@ public class NhanVienService implements INhanVienService {
     private static Scanner sc = new Scanner(System.in);
     private static List<NhanVien> nhanViens = new ArrayList<>();
 
+    static {
+        try {
+            ReadFile.readFile("src\\LuyenTap\\FuramaObject\\data\\nhanVienFile");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
-    public void displayAllEmployee() {
-        for (NhanVien nhanVien : nhanViens){
+    public void displayAllEmployee() throws IOException {
+        nhanViens = ReadFile.readNhanVienFile("src\\LuyenTap\\FuramaObject\\data\\nhanVienFile");
+        for (NhanVien nhanVien : nhanViens) {
             System.out.println(nhanVien);
         }
     }
 
     @Override
-    public void addEmployee() {
+    public void addEmployee() throws IOException {
+        nhanViens = ReadFile.readNhanVienFile("src\\LuyenTap\\FuramaObject\\data\\nhanVienFile");
         NhanVien nhanVien = nhanVienInfor();
         nhanViens.add(nhanVien);
         System.out.println("Thêm mới nhân viên thành công! ");
+        WriteFile.writeNhanVienFile("src\\LuyenTap\\FuramaObject\\data\\nhanVienFile", nhanViens);
 
     }
 
     private NhanVien nhanVienInfor() {
         System.out.println("--------------------------");
         System.out.println("nhập họ và tên");
-        String hoVaTen = sc.nextLine();
+        String hoVaTen;
+        while (true) {
+            hoVaTen = sc.nextLine();
+            if (hoVaTen.toLowerCase().matches("[A-Za-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ ]{5,50}")) {
+                break;
+            } else {
+                System.out.println("mời nhập lại");
+            }
+        }
         System.out.println("nhập ngày sinh");
         String ngaySinh = sc.nextLine();
         System.out.println("nhập chứng minh nhan dan ");
-        int cmnd = Integer.parseInt(sc.nextLine());
+        int cmnd;
+        while (true) {
+            String cmnd1 = sc.nextLine();
+            if (cmnd1.matches("[^A-Za-z]\\d{9}")) {
+                cmnd = Integer.parseInt(cmnd1);
+
+                break;
+            }else {
+                System.out.println("mời nhập lại");
+            }
+        }
         System.out.println("nhập sdt");
-        int sdt = Integer.parseInt(sc.nextLine());
+        int sdt ;
+        while (true) {
+            String sdt1 = sc.nextLine();
+            if (sdt1.matches("[^A-Za-z]\\d{9}")) {
+                sdt = Integer.parseInt(sdt1);
+                break;
+            }else {
+                System.out.println("mời nhập lại");
+            }
+        }
         System.out.println("nhập email");
-        String email = sc.nextLine();
+        String email ;
+        while (true) {
+            email = sc.nextLine();
+            if (email.matches("^[A-Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$")) {
+                break;
+            } else {
+                System.out.println("mời nhập lại");
+            }
+        }
         System.out.println("nhập mã nv");
         String maNhanVien = sc.nextLine();
         System.out.println("nhập trình độ nhân viên\n  " +
@@ -48,16 +97,16 @@ public class NhanVienService implements INhanVienService {
         String trinhDo = null;
         int choice = Integer.parseInt(sc.nextLine());
         switch (choice) {
-            case 1 :
+            case 1:
                 trinhDo = "trung cấp";
                 break;
-            case 2 :
+            case 2:
                 trinhDo = "cao đẳng";
                 break;
-            case 3 :
+            case 3:
                 trinhDo = "đại học ";
                 break;
-            case 4 :
+            case 4:
                 trinhDo = "sau đại học ";
                 break;
         }
@@ -71,40 +120,41 @@ public class NhanVienService implements INhanVienService {
         String viTri = null;
         int choose = Integer.parseInt(sc.nextLine());
         switch (choose) {
-            case 1 :
+            case 1:
                 viTri = "lễ tân";
                 break;
-            case 2 :
+            case 2:
                 viTri = "phục vụ";
                 break;
-            case 3 :
+            case 3:
                 viTri = "chuyên viên";
                 break;
             case 4:
                 viTri = "giám sát";
                 break;
-            case 5 :
+            case 5:
                 viTri = "quản lý";
                 break;
-            case 6 :
+            case 6:
                 viTri = "giám đốc";
                 break;
         }
 
         System.out.println("nhập lương ");
         String luong = sc.nextLine();
-        return new NhanVien(hoVaTen,ngaySinh,cmnd,sdt,email,maNhanVien,trinhDo,viTri,luong);
+        return new NhanVien(hoVaTen, ngaySinh, cmnd, sdt, email, maNhanVien, trinhDo, viTri, luong);
     }
 
 
     @Override
-    public void editEmployee() {
+    public void editEmployee() throws IOException {
+        nhanViens = ReadFile.readNhanVienFile("src\\LuyenTap\\FuramaObject\\data\\nhanVienFile");
         System.out.println("Nhập ID khách hàng cần chỉnh sửa: ");
         String idEdit = sc.nextLine();
         NhanVien temp = null;
         NhanVien nhanVien = null;
-        for (NhanVien nhanVien1 : nhanViens){
-            if (nhanVien.getMaNhanVien() == idEdit){
+        for (NhanVien nhanVien1 : nhanViens) {
+            if (nhanVien.getMaNhanVien() == idEdit) {
                 temp = nhanVien;
                 System.out.println("nhập họ và tên");
                 String hoVaTen = sc.nextLine();
@@ -126,16 +176,16 @@ public class NhanVienService implements INhanVienService {
                 String trinhDo = null;
                 int choice = Integer.parseInt(sc.nextLine());
                 switch (choice) {
-                    case 1 :
+                    case 1:
                         trinhDo = "trung cấp";
                         break;
-                    case 2 :
+                    case 2:
                         trinhDo = "cao đẳng";
                         break;
-                    case 3 :
+                    case 3:
                         trinhDo = "đại học ";
                         break;
-                    case 4 :
+                    case 4:
                         trinhDo = "sau đại học ";
                         break;
                 }
@@ -149,22 +199,22 @@ public class NhanVienService implements INhanVienService {
                 String viTri = null;
                 int choose = Integer.parseInt(sc.nextLine());
                 switch (choose) {
-                    case 1 :
+                    case 1:
                         viTri = "lễ tân";
                         break;
-                    case 2 :
+                    case 2:
                         viTri = "phục vụ";
                         break;
-                    case 3 :
+                    case 3:
                         viTri = "chuyên viên";
                         break;
                     case 4:
                         viTri = "giám sát";
                         break;
-                    case 5 :
+                    case 5:
                         viTri = "quản lý";
                         break;
-                    case 6 :
+                    case 6:
                         viTri = "giám đốc";
                         break;
                 }
@@ -173,13 +223,13 @@ public class NhanVienService implements INhanVienService {
                 String luong = sc.nextLine();
 
                 System.out.println("Chỉnh sửa nhân viên thành công! ");
-                nhanVien1 = new NhanVien(hoVaTen,ngaySinh,cmnd,sdt,email,maNhanVien,trinhDo,viTri,luong);
+                nhanVien1 = new NhanVien(hoVaTen, ngaySinh, cmnd, sdt, email, maNhanVien, trinhDo, viTri, luong);
                 break;
             }
         }
-        if (temp!=null){
-            int index=nhanViens.indexOf(temp);
-          nhanViens.set(index,nhanVien);
+        if (temp != null) {
+            int index = nhanViens.indexOf(temp);
+            nhanViens.set(index, nhanVien);
         }
     }
 }

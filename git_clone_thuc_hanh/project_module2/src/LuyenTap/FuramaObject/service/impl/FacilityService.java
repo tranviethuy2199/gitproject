@@ -5,7 +5,10 @@ import LuyenTap.FuramaObject.model.FurumaResort.Resort;
 import LuyenTap.FuramaObject.model.FurumaResort.Room;
 import LuyenTap.FuramaObject.model.FurumaResort.Villa;
 import LuyenTap.FuramaObject.service.Interface.IFacilityService;
+import LuyenTap.FuramaObject.untils.facilityFile.ReadFile;
+import LuyenTap.FuramaObject.untils.facilityFile.WriteFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,16 +19,25 @@ public class FacilityService implements IFacilityService {
     private static List<Villa> villas = new ArrayList<>();
     private static List<House> houses = new ArrayList<>();
     private static List<Room> rooms = new ArrayList<>();
+    static {
+        try {
+            ReadFile.readFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 
 
 
     @Override
-    public void addVilla() {
+    public void addVilla() throws IOException {
+        resorts = ReadFile.readFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
         Villa villa = villaMenu();
         resorts.add(villa);
         System.out.println("them moi thanh cong");
+        WriteFile.writeFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile",resorts);
     }
 
     private Villa villaMenu() {
@@ -52,10 +64,12 @@ public class FacilityService implements IFacilityService {
 
 
     @Override
-    public void addHouse() {
+    public void addHouse() throws IOException {
+        resorts = ReadFile.readFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
         House house = houseMenu();
         resorts.add(house);
         System.out.println("them moi thanh cong");
+        WriteFile.writeFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile",resorts);
 
     }
 
@@ -77,10 +91,12 @@ public class FacilityService implements IFacilityService {
     }
 
     @Override
-    public void addRoom() {
+    public void addRoom() throws IOException {
+        resorts = ReadFile.readFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
         Room room = roomMenu();
         resorts.add(room);
         System.out.println("them thanh cong");
+        WriteFile.writeFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile",resorts);
     }
     private Room roomMenu() {
         System.out.println("------------");
@@ -101,7 +117,8 @@ public class FacilityService implements IFacilityService {
     }
 
     @Override
-    public void displayFaclity() {
+    public void displayFaclity() throws IOException {
+        resorts = ReadFile.readFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
         for (Resort resort : resorts) {
             System.out.println(resort);
         }

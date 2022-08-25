@@ -16,7 +16,7 @@ public class BookingService implements IBookingService {
 
     }
 //    mã booking, ngày bắt đầu, ngày kết thúc,
-//    mã khách hàng, tên dịch vụ, loại dịch vụ.
+//    mã khách hàng, tên dịch vụ, loại dịch vụ.(tour , gia đình , cặp đôi , một mình)
 //    private  Booking bookingProgram() {
 //        System.out.println();
 //    }

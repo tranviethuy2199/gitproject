@@ -3,6 +3,7 @@ package LuyenTap.StudentManager.service.impl;
 import LuyenTap.StudentManager.model.Student;
 import LuyenTap.StudentManager.service.IStudentService;
 import LuyenTap.StudentManager.service.ScoreException;
+import LuyenTap.StudentManager.service.textKey.NameFormat;
 import com.sun.deploy.net.socket.UnixDomainSocket;
 
 import java.io.*;
@@ -24,20 +25,12 @@ public class StudentService implements IStudentService {
 
     private static final String PATH_NAME_FILE_STUDENT = "src\\LuyenTap\\StudentManager\\data\\student.txt";
 
-//    static {
-//        students.add(new Student(1, "quang", "1/12/95", "nam", 10, "c0622g1"));
-//        students.add(new Student(2, "duy", "12/12/01", "nam", 5, "c0622g1"));
-//        students.add(new Student(3, "tiến", "12/12/01", "nam", 5, "c0622g1"));
-//        students.add(new Student(4, "huy", "12/12/99", "nam", 5, "c0622g1"));
-//        students.add(new Student(4, "huy", "12/12/99", "nam", 5, "c0622g1"));
-//        students.add(new Student(5, "an ", "12/12/03", "nam", 5, "c0622g1"));
-//        students.add(new Student(6, "hùng", "12/12/98", "nam", 5, "c0622g1"));
-//    }
 
     // thêm học sinh
     @Override
     public void addStudent() throws IOException {
         students = readStudentFile("src\\LuyenTap\\StudentManager\\data\\student.txt");
+
         Student student = this.StudentInfor();
         students.add(student);
         System.out.println("completed");
@@ -52,13 +45,29 @@ public class StudentService implements IStudentService {
         System.out.print("Please input ID :  ");
         int id = Integer.parseInt(sc.nextLine());
         System.out.print("Please Written your name :  ");
-        String name = sc.nextLine();
+        String name;
+        while (true) {
+            name = sc.nextLine();
+           if (name.toLowerCase().matches("[A-Za-zvxyỳọáầảấờễàạằệếýộậốũứĩõúữịỗìềểẩớặòùồợãụủíỹắẫựỉỏừỷởóéửỵẳẹèẽổẵẻỡơôưăêâđ ]{5,50}")){
+               break;
+           }else {
+               System.out.println("mời nhập lại");
+           }
+        }
         System.out.print("Please input your birthday : ");
         String birthday = sc.nextLine();
         System.out.print("Please input your sex : ");
         String sex = sc.nextLine();
         System.out.print("Please input your name class :");
-        String nameClass = sc.nextLine();
+        String nameClass;
+        while (true) {
+            nameClass = sc.nextLine();
+            if (nameClass.matches("(A|C)[\\d]{4}(G|I)[1]")){
+                break;
+            }else {
+                System.out.println("mời nhập lại");
+            }
+        }
         double score;
         while (true) {
             try {
@@ -201,6 +210,8 @@ public class StudentService implements IStudentService {
 //        writeStudentFile(PATH_NAME_FILE_STUDENT,students);
     }
 
+
+    // phương thức đọc file
     public static List<String> readFile(String path) throws IOException {
         File file = new File(path);
         FileReader fileReader = new FileReader(file);
@@ -214,6 +225,7 @@ public class StudentService implements IStudentService {
         return strings;
     }
 
+    // phương thức đọc file
     public static List<Student> readStudentFile(String path) throws IOException {
         List<String> strings = readFile(path);
         List<Student> students = new ArrayList<>();
@@ -226,6 +238,8 @@ public class StudentService implements IStudentService {
         return students;
     }
 
+
+    // phương thức viết file
     private static void writeFile(String path, String data) throws IOException {
         File file = new File(path);
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file));
@@ -233,6 +247,8 @@ public class StudentService implements IStudentService {
         bufferedWriter.close();
     }
 
+
+    // phương thức viết file
     public static void writeStudentFile(String path, List<Student> students) throws IOException {
         String data = "";
         for (Student student : students) {

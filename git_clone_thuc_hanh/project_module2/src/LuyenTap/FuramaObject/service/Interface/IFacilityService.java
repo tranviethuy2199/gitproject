@@ -1,13 +1,15 @@
 package LuyenTap.FuramaObject.service.Interface;
 
+import java.io.IOException;
+
 public interface IFacilityService {
-    void addVilla();
+    void addVilla() throws IOException;
 
-    void addHouse();
+    void addHouse() throws IOException;
 
-    void addRoom();
+    void addRoom() throws IOException;
 
-    void displayFaclity();
+    void displayFaclity() throws IOException;
 
     void displayMaintenace();
 }

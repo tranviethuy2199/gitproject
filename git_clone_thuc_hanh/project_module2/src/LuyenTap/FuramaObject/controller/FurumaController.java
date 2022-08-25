@@ -1,5 +1,6 @@
 package LuyenTap.FuramaObject.controller;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class FurumaController {
@@ -12,7 +13,7 @@ public class FurumaController {
     PromotionController promotionController = new PromotionController();
 
 
-    public void generalManagement() {
+    public void generalManagement() throws IOException {
         while (true) {
             System.out.println("--------------------------------");
             System.out.println("Wellcome to Furama Resort DaNang");

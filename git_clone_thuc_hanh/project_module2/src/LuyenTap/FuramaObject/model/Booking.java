@@ -5,6 +5,7 @@ public class Booking {
     private String ngayBatDau;
     private String ngayKetThuc;
 
+
     public Booking() {};
 
     public Booking(String maBooking, String ngayBatDau, String ngayKetThuc) {

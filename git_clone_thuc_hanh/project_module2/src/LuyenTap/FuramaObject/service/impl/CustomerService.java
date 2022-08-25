@@ -1,10 +1,11 @@
 package LuyenTap.FuramaObject.service.impl;
 
 import LuyenTap.FuramaObject.model.Person.Customer;
-import LuyenTap.FuramaObject.model.Person.NhanVien;
 import LuyenTap.FuramaObject.service.Interface.ICustomerService;
+import LuyenTap.FuramaObject.untils.customerFile.ReadFile;
+import LuyenTap.FuramaObject.untils.customerFile.WriteFile;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,19 +13,29 @@ import java.util.Scanner;
 public class CustomerService implements ICustomerService {
     private static Scanner sc = new Scanner(System.in);
     private List<Customer> customers = new LinkedList<>();
+    static {
+        try {
+            ReadFile.readFile("src\\LuyenTap\\FuramaObject\\data\\customerFile");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+}
 
     @Override
-    public void displayAllCustomer() {
+    public void displayAllCustomer() throws IOException {
+        customers = ReadFile.readCustomerFile("src\\LuyenTap\\FuramaObject\\data\\customerFile");
         for (Customer customer : customers){
             System.out.println(customer);
         }
     }
 
     @Override
-    public void addCustomer() {
+    public void addCustomer() throws IOException {
+        customers = ReadFile.readCustomerFile("src\\LuyenTap\\FuramaObject\\data\\customerFile");
         Customer customer = customerInfor();
         customers.add(customer);
         System.out.println("Thêm mới khách hàng thành công! ");
+        WriteFile.writeCustomerFile("src\\LuyenTap\\FuramaObject\\data\\customerFile",customers);
     }
 
     private Customer customerInfor() {
@@ -73,7 +84,8 @@ public class CustomerService implements ICustomerService {
     }
 
     @Override
-    public void editCustomer() {
+    public void editCustomer() throws IOException {
+        customers = ReadFile.readCustomerFile("src\\LuyenTap\\FuramaObject\\data\\customerFile");
         System.out.println("Nhập ID khách hàng cần chỉnh sửa: ");
         String idEdit = sc.nextLine();
         Customer temp = null;
@@ -131,4 +143,5 @@ public class CustomerService implements ICustomerService {
             customers.set(index,customer);
         }
     }
+
 }
