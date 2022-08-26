@@ -3,6 +3,7 @@ package LuyenTap.FuramaObject.controller;
 import LuyenTap.FuramaObject.service.Interface.INhanVienService;
 import LuyenTap.FuramaObject.service.impl.NhanVienService;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class NhanVienController {
@@ -14,21 +15,22 @@ public class NhanVienController {
 //2	Add new employee
 //3	Edit employee
 //4	Return main menu
-    public void nhanVienService() {
+    public void nhanVienService() throws IOException {
         while (true) {
-            System.out.println("Wellcome to Employee Manager");
-            System.out.println("1.Display list Employee");
-            System.out.println("2. Add new Employee");
-            System.out.println("3.Edit employee");
-            System.out.println("4.Return main menu");
+            System.out.println("--------------------------");
+            System.out.println("Trang quản lí khách hàng ");         //Wellcome to Employee Manager
+            System.out.println("1.Thêm mới nhân viên  ");                               // .Display list Employee
+            System.out.println("2.Hiển thị danh sách nhân viên ");
+            System.out.println("3.Chỉnh sửa thông tin nhân viên ");
+            System.out.println("4.Trở lại menu");
             int choose = Integer.parseInt(sc.nextLine());
             switch (choose) {
                 case 1: {
-                    iNhanVienService.displayAllEmployee();
+                    iNhanVienService.addEmployee();
                     break;
                 }
                 case 2: {
-                    iNhanVienService.addEmployee();
+                    iNhanVienService.displayAllEmployee();
                     break;
                 }
                 case 3: {

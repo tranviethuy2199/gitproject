@@ -14,9 +14,10 @@ public class House extends Villa {
 
     @Override
     public String toString() {
-        return "House{" +
-                "dichVuFree='" + dichVuFree + '\'' +
-                super.toString() +
-                '}';
+//        return "House{" +
+//                "dichVuFree='" + dichVuFree + '\'' +
+//                super.toString() +
+//                '}';
+        return String.format("%s,%s,%s,%s,%s",this.getDienTich(),getChiPhi(),getSoLuongNguoi(),getKieuThue(),getTieuChuan());
     }
 }

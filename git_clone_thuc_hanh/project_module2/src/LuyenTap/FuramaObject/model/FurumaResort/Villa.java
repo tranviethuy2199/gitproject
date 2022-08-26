@@ -48,10 +48,11 @@ public class Villa extends Resort {
 
     @Override
     public String toString() {
-        return "Villa{" +
-                "tieuChuan='" + tieuChuan + '\'' +
-                ", dienTichHoBoi=" + dienTichHoBoi +
-                ", soTang=" + soTang +
-                '}';
+//        return "Villa{" +
+//                "tieuChuan='" + tieuChuan + '\'' +
+//                ", dienTichHoBoi=" + dienTichHoBoi +
+//                ", soTang=" + soTang +
+//                '}';
+        return String.format("%s,%s,%s,%s,%s,%s,%s",this.getDienTich(),getChiPhi(),getSoLuongNguoi(),getKieuThue(),getTieuChuan(),getDienTichHoBoi(),getSoTang());
     }
 }

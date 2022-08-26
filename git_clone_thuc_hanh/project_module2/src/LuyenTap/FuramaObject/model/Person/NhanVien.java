@@ -6,7 +6,10 @@ public class NhanVien extends Person {
     private String viTri;
     private String luong;
 
-    public NhanVien() {};
+    public NhanVien() {
+    }
+
+    ;
 
     public NhanVien(String maNhanVien, String trinhDo, String viTri, String luong) {
         this.maNhanVien = maNhanVien;
@@ -57,12 +60,15 @@ public class NhanVien extends Person {
 
     @Override
     public String toString() {
-        return "NhanVien{" +
-                "maNhanVien='" + maNhanVien + '\'' +
-                ", trinhDo='" + trinhDo + '\'' +
-                ", viTri='" + viTri + '\'' +
-                ", luong='" + luong + '\'' +
-                super.toString() +
-                '}';
+//        return "NhanVien{" +
+//                "maNhanVien=" + maNhanVien +
+//                ", trinhDo=" + trinhDo +
+//                ", viTri=" + viTri +
+//                ", luong=" + luong +
+//                super.toString() +
+//                '}';
+//    }
+        return String.format("%s,%s,%s,%s,%s,%s,%s,%s,%s",this.getHoVaTen(),getNgaySinh(),getCmnd(),getSdt(),getEmail(),getMaNhanVien(),getTrinhDo(),getViTri(),getLuong());
     }
 }
+

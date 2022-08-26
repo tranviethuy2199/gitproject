@@ -1,7 +1,6 @@
 package LuyenTap.FuramaObject.untils.customerFile;
 
-import LuyenTap.FuramaObject.model.Person.Customer;
-import LuyenTap.StudentManager.model.Student;
+import LuyenTap.FuramaObject.model.Person.khachHang;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -16,9 +15,9 @@ public class WriteFile {
         bufferedWriter.write(data);
         bufferedWriter.close();
     }
-    public static void writeCustomerFile(String path, List<Customer> customers) throws IOException {
+    public static void writeCustomerFile(String path, List<khachHang> customers) throws IOException {
         String data = "";
-        for (Customer customer : customers) {
+        for (khachHang customer : customers) {
             data += customer.toString();
             data += "\n";
         }

@@ -43,7 +43,7 @@ public class FacilityService implements IFacilityService {
     private Villa villaMenu() {
         System.out.println("----------------------");
         System.out.println("1. dien tich");
-        String dienTich = sc.nextLine();
+        String dienTich = sc.nextLine() ;
         System.out.println("2. chi phi");
         double chiPhi = Double.parseDouble(sc.nextLine());
         System.out.println("3. so luong nguoi");
@@ -65,7 +65,7 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public void addHouse() throws IOException {
-        resorts = ReadFile.readFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
+//        resorts = ReadFile.readFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
         House house = houseMenu();
         resorts.add(house);
         System.out.println("them moi thanh cong");
@@ -77,7 +77,15 @@ public class FacilityService implements IFacilityService {
     private House houseMenu() {
         System.out.println("------------");
         System.out.println("1. dien tich");
-        String dienTich = sc.nextLine();
+        String dienTich ;
+        while (true) {
+            dienTich = sc.nextLine();
+            if (dienTich.matches("\\d{3}[.]\\d{2}[m]")){
+                break;
+            }else {
+                System.out.println("nhập sai định dạng ");
+            }
+        }
         System.out.println("2. chi phi");
         double chiPhi = Double.parseDouble(sc.nextLine());
         System.out.println("3. so luong nguoi");
@@ -92,7 +100,7 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public void addRoom() throws IOException {
-        resorts = ReadFile.readFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
+//        resorts = ReadFile.readFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
         Room room = roomMenu();
         resorts.add(room);
         System.out.println("them thanh cong");
@@ -101,7 +109,15 @@ public class FacilityService implements IFacilityService {
     private Room roomMenu() {
         System.out.println("------------");
         System.out.println("1. dien tich");
-        String dienTich = sc.nextLine();
+        String dienTich ;
+        while (true) {
+            dienTich = sc.nextLine();
+            if (dienTich.matches("\\d*[.]\\d*[m]")){
+                break;
+            }else {
+                System.out.println("nhập sai định dạng , thêm (m) cuối cùng ");
+            }
+        }
         System.out.println("2. chi phi");
         double chiPhi = Double.parseDouble(sc.nextLine());
         System.out.println("3. so luong nguoi");
@@ -117,7 +133,7 @@ public class FacilityService implements IFacilityService {
     }
 
     @Override
-    public void displayFaclity() throws IOException {
+    public void     displayFaclity() throws IOException {
         resorts = ReadFile.readFacilityFile("src\\LuyenTap\\FuramaObject\\data\\facilityFile");
         for (Resort resort : resorts) {
             System.out.println(resort);
@@ -128,7 +144,6 @@ public class FacilityService implements IFacilityService {
     public void displayMaintenace() {
 
     }
-
 
 
 

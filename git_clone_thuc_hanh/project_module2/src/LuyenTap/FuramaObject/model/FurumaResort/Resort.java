@@ -49,11 +49,12 @@ public abstract class Resort {
 
     @Override
     public String toString() {
-        return "Resort{" +
-                "dienTich='" + dienTich + '\'' +
-                ", chiPhi=" + chiPhi +
-                ", soLuongNguoi=" + soLuongNguoi +
-                ", kieuThue='" + kieuThue + '\'' +
-                '}';
+//        return "Resort{" +
+//                "dienTich='" + dienTich + '\'' +
+//                ", chiPhi=" + chiPhi +
+//                ", soLuongNguoi=" + soLuongNguoi +
+//                ", kieuThue='" + kieuThue + '\'' +
+//                '}';
+        return String.format("%s,%s,%s,%s",this.getDienTich(),getChiPhi(),getSoLuongNguoi(),getKieuThue());
     }
 }

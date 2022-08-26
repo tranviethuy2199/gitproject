@@ -8,7 +8,7 @@ public class ValidateClassName {
     private static Pattern pattern;
     private Matcher matcher;
 
-    private static final String CLASSNAME_REGEX = "^[CAP][\\d]{4}[G|H|I|K|L|M]$";
+    private static final String CLASSNAME_REGEX = "^(CAP)\\d{4}(G|H|I|K|L| M])$";
     // ^           : bắt đầu chuỗi string hoặc một dòng .
     // [CAP]       : bắt đầu với kí tự A hoặc C hoặc P .
     // \d{4}       : 1 số có 4 chữ số

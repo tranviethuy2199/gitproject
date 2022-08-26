@@ -1,7 +1,6 @@
 package LuyenTap.FuramaObject.untils.facilityFile;
 
 import LuyenTap.FuramaObject.model.FurumaResort.Resort;
-import LuyenTap.FuramaObject.model.Person.Customer;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,7 +19,7 @@ public class WriteFile {
     public static void writeFacilityFile(String path, List<Resort> resorts) throws IOException {
         String data = "";
         for (Resort resort : resorts) {
-            data += resorts.toString();
+            data += resort.toString();
             data += "\n";
         }
 

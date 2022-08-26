@@ -1,7 +1,9 @@
 package LuyenTap.FuramaObject.service.Interface;
 
+import java.io.IOException;
+
 public interface IBookingService {
-    void addBooking();
+    void addBooking() throws IOException;
 
     void displayAllBooking();
 

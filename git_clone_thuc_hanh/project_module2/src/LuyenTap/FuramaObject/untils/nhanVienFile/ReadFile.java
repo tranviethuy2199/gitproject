@@ -26,7 +26,7 @@ public class ReadFile {
         String[] info;
         for (String line : strings) {
             info = line.split(",");
-            nhanViens.add(new NhanVien(info[0],info[1],info[2],info[3]));
+            nhanViens.add(new NhanVien(info[0],info[1],Integer.parseInt(info[2]),Integer.parseInt(info[3]),info[4],info[5],info[6],info[7],info[8]));
         }
 
         return nhanViens;

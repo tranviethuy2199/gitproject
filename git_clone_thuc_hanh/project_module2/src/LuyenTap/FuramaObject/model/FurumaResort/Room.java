@@ -36,9 +36,10 @@ public class Room extends Villa {
 
     @Override
     public String toString() {
-        return "Room{" +
-                "tieuChuan='" + tieuChuan + '\'' +
-                ", soTang=" + soTang +
-                '}';
+//        return "Room{" +
+//                "tieuChuan='" + tieuChuan + '\'' +
+//                ", soTang=" + soTang +
+//                '}';
+        return String.format("%s,%s,%s,%s,%s,%s",this.getDienTich(),getChiPhi(),getSoLuongNguoi(),getKieuThue(),getTieuChuan(),getSoTang());
     }
 }
